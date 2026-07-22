@@ -33,7 +33,12 @@
         Add Faculty
     </button>
 
-    <p>Total Faculty : {{totalfaculty}}</p>
+    <p ng-style="{
+            'color' : totalfaculty >= 100 ? 'green' : 'red',
+            'font-size' : '25px',
+            'font-weight' : 'bold'
+    }">
+        Total Faculty : {{totalfaculty}}</p>
 
     <h2>Student List</h2>
 
