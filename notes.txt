@@ -1,0 +1,94 @@
+=========================================================
+         TOP 15 HTTP STATUS CODES (WEB DEVELOPMENT)
+=========================================================
+
++------+---------------------------+-----------------------------------------+------------------------------+
+| Code | Status Name               | Meaning                                 | Common Use                   |
++------+---------------------------+-----------------------------------------+------------------------------+
+| 200  | OK                        | Request succeeded                       | Successful GET request       |
+| 201  | Created                   | Resource created successfully           | POST creates new resource    |
+| 204  | No Content                | Success, no response body               | DELETE request               |
+| 301  | Moved Permanently         | Permanent redirect                      | SEO redirects                |
+| 302  | Found                     | Temporary redirect                      | Redirect after login         |
+| 304  | Not Modified              | Cached version is still valid           | Browser caching              |
+| 400  | Bad Request               | Invalid request/data                    | Missing or invalid input     |
+| 401  | Unauthorized              | Authentication required                 | User not logged in           |
+| 403  | Forbidden                 | Permission denied                       | Access restricted            |
+| 404  | Not Found                 | Resource doesn't exist                  | Wrong URL/API endpoint       |
+| 405  | Method Not Allowed        | HTTP method not supported               | POST to GET-only route       |
+| 409  | Conflict                  | Request conflicts with existing data    | Duplicate email/username     |
+| 500  | Internal Server Error     | Server encountered an error             | Backend exception            |
+| 502  | Bad Gateway               | Invalid response from another server    | Proxy/server issue           |
+| 503  | Service Unavailable       | Server temporarily unavailable          | Maintenance/overloaded       |
++------+---------------------------+-----------------------------------------+------------------------------+
+
+=========================================================
+HTTP STATUS CODE CATEGORIES
+=========================================================
+
+1xx - Informational
+      Request received and processing continues.
+
+2xx - Success
+      Request completed successfully.
+
+3xx - Redirection
+      Client needs to take additional action.
+
+4xx - Client Error
+      Problem with the client's request.
+
+5xx - Server Error
+      Problem occurred on the server.
+
+=========================================================
+QUICK MEMORY TRICK
+=========================================================
+
+2xx = SUCCESS
+  200 -> OK
+  201 -> Created
+  204 -> No Content
+
+3xx = REDIRECT
+  301 -> Permanent Redirect
+  302 -> Temporary Redirect
+  304 -> Use Cached Version
+
+4xx = CLIENT ERROR
+  400 -> Bad Request
+  401 -> Unauthorized (Login Required)
+  403 -> Forbidden (No Permission)
+  404 -> Not Found
+  405 -> Method Not Allowed
+  409 -> Conflict
+
+5xx = SERVER ERROR
+  500 -> Internal Server Error
+  502 -> Bad Gateway
+  503 -> Service Unavailable
+
+=========================================================
+MOST IMPORTANT FOR INTERVIEWS
+=========================================================
+
+✓ 200 - OK
+✓ 201 - Created
+✓ 204 - No Content
+✓ 301 - Moved Permanently
+✓ 302 - Found
+✓ 400 - Bad Request
+✓ 401 - Unauthorized
+✓ 403 - Forbidden
+✓ 404 - Not Found
+✓ 500 - Internal Server Error
+
+=========================================================
+Inject Function
+=========================================================
+
+=========================================================
+ng-binding
+=========================================================
+
+- link html page and js file with controller
