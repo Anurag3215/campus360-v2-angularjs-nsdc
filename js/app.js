@@ -1,4 +1,4 @@
-var app = angular.module('campus360', []);
+var app = angular.module("campus360", []);
 
 app.controller("dashboardcontroller", function ($scope) {
 
@@ -16,7 +16,11 @@ app.controller("dashboardcontroller", function ($scope) {
     $scope.showstudents = false;
     $scope.showDashboard = true;
 
-    // Function to add a student
+    // Variables for Filter Demo
+    $scope.fee = 25000;
+    $scope.date = new Date();
+    $scope.number = 12345.6789;
+
     $scope.addstudent = function () {
         $scope.totalstudents++;
     };
@@ -26,4 +30,5 @@ app.controller("dashboardcontroller", function ($scope) {
     };
 
     console.log("Dashboard controller is loaded");
+
 });

@@ -34,11 +34,12 @@
     </button>
 
     <p ng-style="{
-            'color' : totalfaculty >= 100 ? 'green' : 'red',
-            'font-size' : '25px',
-            'font-weight' : 'bold'
+        'color': totalfaculty >= 100 ? 'green' : 'red',
+        'font-size': '25px',
+        'font-weight': 'bold'
     }">
-        Total Faculty : {{totalfaculty}}</p>
+        Total Faculty : {{totalfaculty}}
+    </p>
 
     <h2>Student List</h2>
 
@@ -53,6 +54,14 @@
             </li>
         </ul>
     </div>
+
+    <h2>Filter Demo</h2>
+
+    <p>Uppercase : {{ collegename | uppercase }}</p>
+    <p>Lowercase : {{ collegename | lowercase }}</p>
+    <p>Currency : {{ fee | currency }}</p>
+    <p>Date : {{ date | date:'dd/MM/yyyy' }}</p>
+    <p>Number : {{ number | number:2 }}</p>
 
 </body>
 
