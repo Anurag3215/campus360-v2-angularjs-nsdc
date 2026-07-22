@@ -1,8 +1,8 @@
-var app = angular.module("campus360", []);
+var app = angular.module('campus360', []);
 
 app.controller("dashboardcontroller", function ($scope) {
 
-    $scope.collegename = "FISAT";
+    $scope.collegename = "FISaT";
     $scope.totalstudents = 1200;
     $scope.totalfaculty = 85;
 
@@ -16,12 +16,24 @@ app.controller("dashboardcontroller", function ($scope) {
     $scope.showstudents = false;
     $scope.showDashboard = true;
 
-    // Variables for Filter Demo
-    $scope.fee = 25000;
-    $scope.date = new Date();
-    $scope.number = 12345.6789;
+    $scope.fees = 25600;
+    $scope.today = new Date();
+
+    $scope.departments=[
+
+        "CSE",
+        "MCA",
+        "MBA",
+        "BBA",
+        "EEE",
+        "IMCA"
+
+    ];
+
+$scope.selectedDepartment = "MCA";
 
     $scope.addstudent = function () {
+
         $scope.totalstudents++;
     };
 
@@ -30,5 +42,4 @@ app.controller("dashboardcontroller", function ($scope) {
     };
 
     console.log("Dashboard controller is loaded");
-
 });
