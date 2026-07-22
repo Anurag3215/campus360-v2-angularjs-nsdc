@@ -2,23 +2,28 @@ var app = angular.module('campus360', []);
 
 app.controller("dashboardcontroller", function ($scope) {
 
-
     $scope.collegename = "FISAT";
-    $scope.totalstudent = 1500;
-    $scope.totalfaculty = 80;
+    $scope.totalstudents = 1200;
+    $scope.totalfaculty = 85;
 
     $scope.students = [
-        "Thomas", "Anurag", "Sumedha", "Annet", "Taniya", "Agnet"
+        "Sumedha",
+        "Smruthi",
+        "Hiba",
+        "Nazeeya"
     ];
 
-    $scope.addstudent = function (){
-        $scope.totalstudent++
+    $scope.showstudents = false;
+    $scope.showDashboard = true;
 
-        $scope.showstudent=true;
-
-        $scope.show
+    // Function to add a student
+    $scope.addstudent = function () {
+        $scope.totalstudents++;
     };
 
-    console.log("dashboard controller is loaded");
-});
+    $scope.addfaculty = function () {
+        $scope.totalfaculty++;
+    };
 
+    console.log("Dashboard controller is loaded");
+});
