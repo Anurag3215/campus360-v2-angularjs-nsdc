@@ -1,169 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html ng-app="campus360">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="js/app.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
 
-    <title>College Dashboard</title>
+  <title>College Dashboard</title>
 </head>
 
 <body ng-controller="dashboardcontroller">
+  <input type="text" ng-model="collegename" />
+  <h1>{{collegename}}</h1>
 
-    <input type="text" ng-model="collegename">
-    <h1>{{collegename}}</h1>
+  <input type="number" ng-model="totalstudents" />
+  <button ng-click="totalstudents = totalstudents + 1">Add Student</button>
 
-    <input type="number" ng-model="totalstudents">
-    <button ng-click="totalstudents = totalstudents + 1">
-        Add Student
-    </button>
-
-    <p ng-class="{
+  <p ng-class="{
         'green': totalstudents >= 1000,
         'red': totalstudents < 1000
     }">
-        Total Students : {{totalstudents}}
-    </p>
+    Total Students : {{totalstudents}}
+  </p>
 
-    <input type="number" ng-model="totalfaculty">
-    <button ng-click="totalfaculty = totalfaculty + 1">
-        Add Faculty
-    </button>
+  <input type="number" ng-model="totalfaculty" />
+  <button ng-click="totalfaculty = totalfaculty + 1">Add Faculty</button>
 
-    <p ng-style="{
+  <p ng-style="{
 
 'color' : totalfaculty >= 100 ? 'green' : 'red',
 'font-size' : '25px',
 'font-weight' : 'bold'
 
     }">
-        Total Faculty : {{totalfaculty}}</p>
+    Total Faculty : {{totalfaculty}}
+  </p>
 
-    <h2>Student List</h2>
+  <h2>Student List</h2>
 
-    <button ng-click="showstudents = !showstudents">
-        Show/Hide Students
-    </button>
+  <button ng-click="showstudents = !showstudents">Show/Hide Students</button>
 
-    <div ng-if="showDashboard">
-        <ul ng-show="showstudents">
-            <li ng-repeat="student in students">
-                {{student}}
-            </li>
-        </ul>
+  <div ng-if="showDashboard">
+    <ul ng-show="showstudents">
+      <li ng-repeat="student in students">{{student}}</li>
+    </ul>
+  </div>
+
+  <h2>Filter Demo</h2>
+  <p>uppercase : {{collegename | uppercase}}</p>
+  <p>lowercase : {{collegename | lowercase}}</p>
+  <p>currency : {{fees | currency}}</p>
+  <p>date : {{today | date: 'dd/MM/yyyy'}}</p>
+  <p>number : {{fees | number:2}}</p>
+
+  <hr />
+  <h2>Selected Departments</h2>
+
+  <label> Select Departments: </label>
+
+  <br /><br />
+
+  <select ng-model="selectedDepartment" ng-options="department for department in departments"></select>
+
+  <p>Selected Departments:{{selectedDepartment}}</p>
+
+  <hr />
+
+  <h2>Department Info</h2>
+
+  <div ng-switch="selectedDepartment">
+    <div ng-switch-when="CSE">
+      <h3>Computer Science and Engineering</h3>
+      <p>
+        Department of CSE focuses on software engineering, algorithms,
+        artificial intelligence, and computing systems.
+      </p>
     </div>
 
-    <h2>Filter Demo</h2>
-    <p>uppercase : {{collegename | uppercase}}</p>
-    <p>lowercase : {{collegename | lowercase}}</p>
-    <p>currency : {{fees | currency}}</p>
-    <p>date : {{today | date: 'dd/MM/yyyy'}}</p>
-    <p>number : {{fees | number:2}}</p>
-
-    <hr>
-    <h2>Selected Departments</h2>
-
-    <label>
-        Select Departments:
-    </label>
-
-    <br><br>
-
-    <select ng-model="selectedDepartment" ng-options="department for department in departments"></select>
-
-    <p>Selected Departments:{{selectedDepartment}}</p>
-
-    <hr>
-
-    <h2>Department Info</h2>
-
-    <div ng-switch="selectedDepartment">
-
-        <div ng-switch-when="CSE">
-            <h3>Computer Science and Engineering</h3>
-            <p>Department of CSE focuses on software engineering, algorithms, artificial intelligence, and computing
-                systems.</p>
-        </div>
-
-        <div ng-switch-when="MCA">
-            <h3>Master of Computer Applications</h3>
-            <p>Department of MCA provides advanced training in modern software design, application development, and
-                system
-                administration.</p>
-        </div>
-
-        <div ng-switch-when="MBA">
-            <h3>Master of Business Administration</h3>
-            <p>Department of MBA focuses on leadership, strategic management, corporate finance, and business analytics.
-            </p>
-        </div>
-
-        <div ng-switch-when="BBA">
-            <h3>Bachelor of Business Administration</h3>
-            <p>Department of BBA equips students with fundamental principles in marketing, human resources, and business
-                operations.</p>
-        </div>
-
-        <div ng-switch-when="EEE">
-            <h3>Electrical and Electronics Engineering</h3>
-            <p>Department of EEE covers power electronics, circuit design, control systems, and renewable energy
-                technologies.</p>
-        </div>
-
-        <div ng-switch-when="IMCA">
-            <h3>Integrated Master of Computer Applications</h3>
-            <p>Department of IMCA offers a comprehensive five-year integrated program combining foundational and
-                advanced
-                computing skills.</p>
-        </div>
-
+    <div ng-switch-when="MCA">
+      <h3>Master of Computer Applications</h3>
+      <p>
+        Department of MCA provides advanced training in modern software
+        design, application development, and system administration.
+      </p>
     </div>
 
-    <hr>
-
-    <h2>ng-init demo</h2>
-
-    <div ng-init="collegecode = 'Fisat123'; location = 'Angamaly'">
-
-        <p>College Code : {{collegecode}}</p>
-        <p>Location : {{location}}</p>
-
+    <div ng-switch-when="MBA">
+      <h3>Master of Business Administration</h3>
+      <p>
+        Department of MBA focuses on leadership, strategic management,
+        corporate finance, and business analytics.
+      </p>
     </div>
 
-    <hr>
+    <div ng-switch-when="BBA">
+      <h3>Bachelor of Business Administration</h3>
+      <p>
+        Department of BBA equips students with fundamental principles in
+        marketing, human resources, and business operations.
+      </p>
+    </div>
 
-    <h2>ng-disabled demo</h2>
+    <div ng-switch-when="EEE">
+      <h3>Electrical and Electronics Engineering</h3>
+      <p>
+        Department of EEE covers power electronics, circuit design, control
+        systems, and renewable energy technologies.
+      </p>
+    </div>
 
-    <button ng-click="allowAdmission()">
+    <div ng-switch-when="IMCA">
+      <h3>Integrated Master of Computer Applications</h3>
+      <p>
+        Department of IMCA offers a comprehensive five-year integrated program
+        combining foundational and advanced computing skills.
+      </p>
+    </div>
+  </div>
 
-        Enable Admission
+  <hr />
 
-    </button>
+  <h2>ng-init demo</h2>
+
+  <div ng-init="collegecode = 'Fisat123'; location = 'Angamaly'">
+    <p>College Code : {{collegecode}}</p>
+    <p>Location : {{location}}</p>
+  </div>
+
+  <hr />
+
+  <h2>ng-disabled demo</h2>
+
+  <button ng-click="allowAdmission()">Enable Admission</button>
+  <br /><br />
+
+  <button ng-disabled="isDisabled">Take Admission</button>
+  <br /><br />
+
+  <h2>ng-readonly demo</h2>
+  <label>College ID</label>
+
+  <br /><br />
+
+  <input type="text" ng-model="" ng-readonly="isReadOnly" />
+
+  <br /><br />
+
+  <button ng-click="isReadOnly =!isReadOnly">Toggle ReadOnly</button>
+
+  <p>ReadOnly Status : {{isReadOnly}}</p>
+
+  <hr />
+  <br /><br />
+  <h2>Student Registration</h2>
+
+  <form name="studentform">
+    <label>Student Name</label>
+    <br />
+    <input type="text" ng-model="student.name" required />
     <br><br>
 
-    <button ng-disabled="isDisabled">
-
-        Take Admission
-
-    </button>
+    <label>Email</label>
+    <br />
+    <input type="email" ng-model="student.email" required />
     <br><br>
 
-    <h2>ng-readonly demo</h2>
-    <label>College ID</label>
+    <button>Registration</button>
 
-    <br><br>
+    <h2>Form Status</h2>
 
-    <input type="text" ng-model="" ng-readonly="isReadOnly">
+    <p>
+      valid : {{studentform.$valid}}
+    </p>
 
-    <br><br>
+    <p>
+      invalid : {{studentform.$invalid}}
+    </p>
 
-    <button ng-click="isReadOnly =!isReadOnly">Toggle ReadOnly</button>
+    <p>
+      pristine : {{studentform.$pristine}}
+    </p>
 
-    <p>ReadOnly Status : {{isReadOnly}}</p>
+    <p>
+      dirty : {{studentform.$dirty}}
+    </p>
 
+    <p ng-show ="studentform.studentform.$touched && studentform.studentform.$invalid"
+        style = "color:red; font-weight:bold; font-size:20px;">
+          
+        student name is required
+    </p>
+
+  </form>
 </body>
 
 </html>
